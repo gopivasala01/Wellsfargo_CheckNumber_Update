@@ -2,6 +2,7 @@ package mainPackage;
 
 import java.net.SocketException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -138,7 +139,9 @@ public class DataBase
 		                String  CheckNumber = (String) rs.getObject(3);
 		                String  AutomationStatus = (String) rs.getObject(4);
 		                String  Automation_Notes = (String) rs.getObject(5);
-		                String  Automation_CompletionDate = (String) rs.getObject(6);
+		                //String  Automation_CompletionDate = (String) rs.getObject(6);
+		                Date date = (Date) rs.getObject(6);
+		                String Automation_CompletionDate = date != null ? date.toString() : null;
 		                System.out.println(company +" | "+PaymentEntityID+" | "+CheckNumber+" | "+AutomationStatus+" | "+Automation_Notes+" | "+Automation_CompletionDate);
 		    				//Company
 		    				RunnerClass.completedBuildingList[i][0] = company;
