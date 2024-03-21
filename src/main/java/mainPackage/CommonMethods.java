@@ -145,8 +145,10 @@ public class CommonMethods
 		wb.write(fileOut);
 		wb.close();
 		fileOut.close();  
-		System.out.println("Excel file has been generated successfully.");  
-		CommonMethods.sendFileToMail(filename);
+		System.out.println("Excel file has been generated successfully.");
+		if(RunnerClass.completedBuildingList!=null) {
+			CommonMethods.sendFileToMail(filename);
+			}
 		}   
 		catch (Exception e)   
 		{  
@@ -161,7 +163,7 @@ public class CommonMethods
         String smtpHost = "smtp.office365.com";
         String smtpPort = "587";
         String emailFrom = "naveen.p@beetlerim.com";
-        String emailTo = "naveen.p@beetlerim.com";
+        String emailTo = "naveen.p@beetlerim.com,gopi.v@beetlerim.com,dahoffman@homeriver.com";
 
         // Sender's credentials
         final String username = "naveen.p@beetlerim.com";

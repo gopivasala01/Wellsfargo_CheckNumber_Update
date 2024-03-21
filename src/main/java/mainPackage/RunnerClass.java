@@ -47,7 +47,7 @@ public class RunnerClass {
     		    prefs.put("download.default_directory",RunnerClass.downloadFilePath);
     	        ChromeOptions options = new ChromeOptions();
     	        options.addArguments("--remote-allow-origins=*");
-    	        options.addArguments("--headless");
+    	       // options.addArguments("--headless");
     	        options.addArguments("--disable-gpu");  //GPU hardware acceleration isn't needed for headless
     	        options.addArguments("--no-sandbox");  //Disable the sandbox for all software features
     	        options.addArguments("--disable-dev-shm-usage");  //Overcome limited resource problems
