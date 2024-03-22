@@ -34,7 +34,7 @@ public class AppConfig
 	   public static String failedLeasesQuery = "Select Company, LeaseEntityID,DateDiff(Day,MoveInDate,Getdate()) as datedifference,moveInDate from Automation.BaseRentUpdate where  Company='Alabama' and Status ='Failed'";
 	   
 	   public static String getBuildingsWithStatusforCurrentDay = "\r\n"
-	   		+ "Select Company, PaymentEntityID, CheckNumber,AutomationStatus,Automation_Notes,Automation_CompletionDate from WF_DailyPayments where VendorPaymentMethod  ='Check' and AsOfDate= (Select MAX(Asofdate) from WF_DailyPayments)";
+	   		+ "Select Company, PaymentEntityID, CheckNumber,AutomationStatus,Automation_Notes,Automation_CompletionDate from WF_DailyPayments where VendorPaymentMethod  ='Check' and CAST(AsOFDate as Date)=CAST(getdate() as date)";
 	   
 	   
 	   public static String getMonthlyRentChargeCode(String company)

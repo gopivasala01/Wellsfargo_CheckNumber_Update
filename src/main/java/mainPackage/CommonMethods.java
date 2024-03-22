@@ -118,7 +118,7 @@ public class CommonMethods
 		header.createCell(5).setCellValue("Automation_CompletionDate");
 
 		boolean getBuildings =  DataBase.getCompletedBuildingsList();
-		if(getBuildings==true&&RunnerClass.completedBuildingList!=null)
+		if(getBuildings==true&&RunnerClass.completedBuildingList.length !=0)
 		{
 			for(int i=0;i<RunnerClass.completedBuildingList.length;i++)
 			{
@@ -146,7 +146,8 @@ public class CommonMethods
 		wb.close();
 		fileOut.close();  
 		System.out.println("Excel file has been generated successfully.");
-		if(RunnerClass.completedBuildingList!=null) {
+		if(RunnerClass.completedBuildingList.length != 0) {
+			
 			CommonMethods.sendFileToMail(filename);
 			}
 		}   
