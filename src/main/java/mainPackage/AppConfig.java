@@ -2,7 +2,7 @@ package mainPackage;
 
 public class AppConfig 
 {
-	   public static boolean saveButtonOnAndOff= false;
+	   public static boolean saveButtonOnAndOff= true;
 		
 	   public static String URL ="https://app.propertyware.com/pw/login.jsp";
 	   public static String username ="mds0418@gmail.com";
@@ -30,7 +30,7 @@ public class AppConfig
 	   
 	  // public static String leaseFetchQuery  = "Select Company, Building,leaseName from Automation.InitialRentsUpdate where Status ='Pending' and Company ='Georgia'";
 	   
-	   public static String pendingLeasesQuery = "Select ID, Company, PaymentEntityID, CheckNumber from WF_DailyPayments where VendorPaymentMethod  ='Check' and CheckNumber ='1000000002'";// and CAST(AsOFDate as Date)=CAST(getdate() as date)";
+	   public static String pendingLeasesQuery = "Select ID, Company, PaymentEntityID, CheckNumber from WF_DailyPayments where VendorPaymentMethod  ='Check' and CAST(AsOFDate as Date)=CAST(getdate() as date)";
 	   
 	   public static String failedLeasesQuery = "Select Company, LeaseEntityID,DateDiff(Day,MoveInDate,Getdate()) as datedifference,moveInDate from Automation.BaseRentUpdate where  Company='Alabama' and Status ='Failed'";
 	   
