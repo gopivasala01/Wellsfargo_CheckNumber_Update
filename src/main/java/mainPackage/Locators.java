@@ -75,6 +75,10 @@ public class Locators
     public static By noAutoCharges = By.xpath("//*[text()='No Charges']");
     public static By RefNumber = By.name("check.refNo");
     public static By errorMessage =By.id("errorMessages");
+    public static By attachFileButton =By.id("showAttachmentsFormButton");
+    public static By chooseFile = By.name("file(1)");
+    public static By cancelChooseFilePopUp = By.xpath("//*[@value='Cancel']");
+    public static By uploadChooseFilePopUp = By.xpath("//*[@value='Upload']");
     		
 
 }

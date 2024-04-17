@@ -1,13 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="0" passed="0" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-22T11:08:14 IST" name="DataProviderSuite" finished-at="2024-03-22T11:08:17 IST" duration-ms="2827">
+  <suite started-at="2024-04-17T17:06:41 IST" name="DataProviderSuite" finished-at="2024-04-17T17:52:14 IST" duration-ms="2733166">
     <groups>
     </groups>
-    <test started-at="2024-03-22T11:08:14 IST" name="DataProviderTest" finished-at="2024-03-22T11:08:17 IST" duration-ms="2827">
+    <test started-at="2024-04-17T17:06:41 IST" name="DataProviderTest" finished-at="2024-04-17T17:52:14 IST" duration-ms="2733166">
       <class name="mainPackage.RunnerClass">
-        <test-method is-config="true" signature="sendMail()[pri:0, instance:mainPackage.RunnerClass@185a6e9]" started-at="2024-03-22T11:08:17 IST" name="sendMail" finished-at="2024-03-22T11:12:11 IST" duration-ms="234016" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:mainPackage.RunnerClass@185a6e9]" started-at="2024-04-17T17:06:44 IST" name="setUp" finished-at="2024-04-17T17:07:01 IST" duration-ms="17384" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testMethod(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:mainPackage.RunnerClass@185a6e9]" started-at="2024-04-17T17:07:01 IST" name="testMethod" data-provider="testData" finished-at="2024-04-17T17:52:14 IST" duration-ms="2712642" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[479849]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Spokane]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[5617188897]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[1000000002]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMethod -->
+        <test-method is-config="true" signature="sendMail()[pri:0, instance:mainPackage.RunnerClass@185a6e9]" started-at="2024-04-17T17:52:14 IST" name="sendMail" finished-at="2024-04-17T17:52:17 IST" duration-ms="2844" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- sendMail -->
