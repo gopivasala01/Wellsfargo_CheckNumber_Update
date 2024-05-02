@@ -38,7 +38,7 @@ public class PropertyWare
 	        Thread.sleep(3000);
 	        
 	        try {
-	        	String buildingPageURL = AppConfig.paymentPageURL+"5618204751";/// paymentEntityID;
+	        	String buildingPageURL = AppConfig.paymentPageURL+paymentEntityID;
 	 	        driver.navigate().to(buildingPageURL);
 	        }
 	    	catch(Exception e)

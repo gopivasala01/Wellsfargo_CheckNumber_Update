@@ -39,6 +39,7 @@ public class UpdatePaymentCheckNumber {
 						//driver.findElement(Locators.cancelChooseFilePopUp).click();
 				    	String fileName = AppConfig.pdfUploadFilePath+checkNumber+".pdf";
 						driver.findElement(Locators.chooseFile).sendKeys(fileName);
+						Thread.sleep(500);
 						driver.findElement(Locators.uploadChooseFilePopUp).click();
 						break;
 		            }

@@ -30,7 +30,7 @@ public class AppConfig
 	   
 	  // public static String leaseFetchQuery  = "Select Company, Building,leaseName from Automation.InitialRentsUpdate where Status ='Pending' and Company ='Georgia'";
 	   
-	   public static String pendingLeasesQuery = "Select ID, Company, PaymentEntityID, CheckNumber from WF_DailyPayments where VendorPaymentMethod  ='Check' and CAST(AsOFDate as Date)=CAST(getdate() as date)";
+	   public static String pendingLeasesQuery = "SELECT MAX(ID)AS ID, MAX(Company) AS Company, PaymentEntityID, MAX(CheckNumber) AS CheckNumber FROM WF_DailyPayments WHERE VendorPaymentMethod = 'Check' AND CAST(AsOFDate AS DATE) = CAST(GETDATE() - 1 AS DATE) GROUP BY PaymentEntityID";
 	   
 	   public static String failedLeasesQuery = "Select Company, LeaseEntityID,DateDiff(Day,MoveInDate,Getdate()) as datedifference,moveInDate from Automation.BaseRentUpdate where  Company='Alabama' and Status ='Failed'";
 	   
