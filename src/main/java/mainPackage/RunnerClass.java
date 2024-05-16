@@ -183,6 +183,7 @@ public class RunnerClass {
     @AfterSuite
     public void sendMail(){
     	try {
+    		AddPdfFilesToGoogleDrive.addingPDFToDrive();
 			CommonMethods.excelCreationWithQuery();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
