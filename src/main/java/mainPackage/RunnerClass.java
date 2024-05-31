@@ -1,18 +1,21 @@
 package mainPackage;
 
 
+import java.io.File;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.mail.MessagingException;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -32,7 +35,20 @@ public class RunnerClass {
     // Use ThreadLocal to store a separate ChromeDriver instance for each thread
     private static ThreadLocal<ChromeDriver> driverThreadLocal = new ThreadLocal<ChromeDriver>();
     private static ThreadLocal<String> failedReasonThreadLocal = new ThreadLocal<>();
-    
+    @BeforeSuite
+    public void SplitPDF() {
+    	 try {
+             FileUtils.cleanDirectory(new File(AppConfig.pdfUploadFilePath));
+         } catch (Exception e) {
+         }
+    	try {
+ 			SplitPDFFileFromSharedFolder.SplitPDFFromSharedFolder();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Issue in Splitting PDF");
+			e.printStackTrace();
+		}
+    }
     
     @BeforeMethod
     public boolean setUp(){
@@ -89,7 +105,7 @@ public class RunnerClass {
     }
 
     @Test(dataProvider = "testData")
-    public void testMethod(String ID,String company, String paymentEntityID,String checkNumber) throws Exception {
+    public void testMethod(String ID,String company, String paymentEntityID,String checkNumber) throws Exception { //,String vendorPaymentMethod,String ConfirmationNumber
     	String failedReason="";
     	
     	System.out.println("<-------- "+paymentEntityID+" -------->");
@@ -123,7 +139,7 @@ public class RunnerClass {
 				
 			}
 			else {
-					if (UpdatePaymentCheckNumber.updateCheckNumber(driver,checkNumber) == false) {
+					if (UpdatePaymentCheckNumber.updateCheckNumber(driver,checkNumber) == false) { //,vendorPaymentMethod,ConfirmationNumber
 						failedReason = getFailedReason();
 						String query = "Update WF_DailyPayments set AutomationStatus='Failed',Automation_Notes='"
 								+ failedReason + "',Automation_CompletionDate = getdate() where ID = '" + ID + "'";

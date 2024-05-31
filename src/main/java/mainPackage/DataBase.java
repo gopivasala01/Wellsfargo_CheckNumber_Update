@@ -31,15 +31,16 @@ public class DataBase
 		            	rs.beforeFirst();
 		            }
 		            System.out.println("No of Rows = "+rows);
-		            RunnerClass.pendingLeases = new String[rows][4];
+		            RunnerClass.pendingLeases = new String[rows][4];//new String[rows][6];
 		           int  i=0;
 		            while(rs.next())
 		            {
 		            	String 	ID =  rs.getObject(1).toString();
 		            	String 	company =  (String) rs.getObject(2);
 		                String  paymentEntityID = rs.getObject(3).toString();
-		                String checkNumber = rs.getObject(4).toString();;
-		               
+		                String checkNumber = rs.getObject(4).toString();
+		               // String vendorPaymentMethod = rs.getObject(5).toString();
+		               // String ConfirmationNumber  = rs.getObject(6).toString();
 		               
 		               
 		    			//ID
@@ -78,6 +79,23 @@ public class DataBase
 		                {
 		                	RunnerClass.pendingLeases[i][3] = "";
 		                }
+		           /*     try 
+		                {
+		    				RunnerClass.pendingLeases[i][4] = vendorPaymentMethod;
+		                }
+		                catch(Exception e)
+		                {
+		                	RunnerClass.pendingLeases[i][4] = "";
+		                }
+		                try 
+		                {
+		    				RunnerClass.pendingLeases[i][5] = ConfirmationNumber;
+		                }
+		                catch(Exception e)
+		                {
+		                	RunnerClass.pendingLeases[i][5] = "";
+		                }*/
+		                
 		    			i++;
 		            }	
 		            System.out.println("Total Pending Leases  = " +RunnerClass.pendingLeases.length);

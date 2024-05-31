@@ -9,7 +9,7 @@ public class AppConfig
 	   public static String password ="KRm#V39fecMDGg#";
 	   
 	   public static String excelFileLocation = "D:\\Automation\\WellsFargo_CheckNumber";
-	   public static String downloadFilePath = "C:\\SantoshMurthyP\\Initial Rents Update - Branches\\Tennessee";
+	   public static String downloadFilePath = "C:\\Users\\gopi\\Documents\\Target Rent Files\\";
 	   public static String pdfUploadFilePath = "C:\\Users\\gopi\\Documents\\Target Rent Files\\PDFs\\";
 	   
 	   public static String paymentPageURL = "https://app.propertyware.com/pw/moneyout/edit_check.do?action=EditBillPayment&billPaymentID=";
@@ -30,12 +30,11 @@ public class AppConfig
 	   
 	  // public static String leaseFetchQuery  = "Select Company, Building,leaseName from Automation.InitialRentsUpdate where Status ='Pending' and Company ='Georgia'";
 	   
-	   public static String pendingLeasesQuery = "SELECT MAX(ID)AS ID, MAX(Company) AS Company, PaymentEntityID, MAX(CheckNumber) AS CheckNumber FROM WF_DailyPayments WHERE VendorPaymentMethod = 'Check' AND CAST(AsOFDate AS DATE) = CAST(GETDATE() - 1 AS DATE) GROUP BY PaymentEntityID";
+	   public static String pendingLeasesQuery = "SELECT MAX(ID)AS ID, MAX(Company) AS Company, PaymentEntityID, MAX(CheckNumber) AS CheckNumber FROM WF_DailyPayments WHERE VendorPaymentMethod = 'Check' AND CAST(AsOFDate AS DATE) = CAST(GETDATE() AS DATE) GROUP BY PaymentEntityID";
 	   
 	   public static String failedLeasesQuery = "Select Company, LeaseEntityID,DateDiff(Day,MoveInDate,Getdate()) as datedifference,moveInDate from Automation.BaseRentUpdate where  Company='Alabama' and Status ='Failed'";
 	   
-	   public static String getBuildingsWithStatusforCurrentDay = "\r\n"
-	   		+ "Select Company, PaymentEntityID, CheckNumber,AutomationStatus,Automation_Notes,Automation_CompletionDate from WF_DailyPayments where VendorPaymentMethod  ='Check' and CAST(AsOFDate as Date)=CAST(getdate() as date)";
+	   public static String getBuildingsWithStatusforCurrentDay = "Select Company, PaymentEntityID, CheckNumber,AutomationStatus,Automation_Notes,Automation_CompletionDate from WF_DailyPayments where VendorPaymentMethod  ='Check' and AutomationStatus !='Pending' and CAST(AsOFDate as Date)=CAST(getdate() as date)";
 	   
 	   
 	   public static String getMonthlyRentChargeCode(String company)

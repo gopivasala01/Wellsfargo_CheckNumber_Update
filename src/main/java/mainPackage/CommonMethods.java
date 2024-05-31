@@ -168,7 +168,7 @@ public class CommonMethods
 
         // Sender's credentials
         final String username = "naveen.p@beetlerim.com";
-        final String password = "Welcome@123";
+        final String password = "Beetlerim@123";
 
         // Email properties
         Properties props = new Properties();
